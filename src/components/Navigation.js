@@ -4,6 +4,10 @@ import logo from '../logo.png';
 
 const Navigation = ({ account, setAccount }) => {
 	const connectHandler = async () => {
+        if (typeof window.ethereum === 'undefined') {
+            window.alert('Install the MetaMask extension to connect a wallet.')
+            return
+        }
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         const account = ethers.utils.getAddress(accounts[0])
         setAccount(account);

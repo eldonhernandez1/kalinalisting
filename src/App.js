@@ -13,6 +13,12 @@ import RealEstate from '../src/abis/RealEstate.json'
 // Config
 import config from '../src/config.json';
 
+// Public read-only RPC used when no wallet extension is installed, so the
+// home listings still render for a plain visitor. Connecting a wallet is
+// still required to buy/sell.
+const SEPOLIA_CHAIN_ID = 11155111
+const SEPOLIA_PUBLIC_RPC_URL = 'https://rpc.sepolia.org'
+
 function App() {
   const [provider, setProvider] = useState(null)
   const [escrow, setEscrow] = useState(null)
@@ -25,11 +31,17 @@ function App() {
 
   // Load Blockchain Data
   const loadBlockchainData = async () => {
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    const hasWallet = typeof window.ethereum !== 'undefined'
+
+    // Without a wallet extension, fall back to a public read-only RPC so the
+    // listings still render. A wallet is only required to buy/sell.
+    const provider = hasWallet
+      ? new ethers.providers.Web3Provider(window.ethereum)
+      : new ethers.providers.JsonRpcProvider(SEPOLIA_PUBLIC_RPC_URL)
     setProvider(provider)
     console.log(provider)
 
-    const {chainId} = await provider.getNetwork()
+    const chainId = hasWallet ? (await provider.getNetwork()).chainId : SEPOLIA_CHAIN_ID
 
     const realEstate = new ethers.Contract(config[chainId].realEstate.address, RealEstate, provider)
     
@@ -61,11 +73,13 @@ function App() {
     const escrow = new ethers.Contract(config[chainId].escrow.address, Escrow, provider)
     setEscrow(escrow)
 
-    window.ethereum.on('accountsChanged', async () => {
-      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-      const account = ethers.utils.getAddress(accounts[0])
-      setAccount(account);
-    })
+    if (hasWallet) {
+      window.ethereum.on('accountsChanged', async () => {
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const account = ethers.utils.getAddress(accounts[0])
+        setAccount(account);
+      })
+    }
   }
 
   useEffect(() => {
