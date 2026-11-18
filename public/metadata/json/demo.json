@@ -1,0 +1,33 @@
+{
+    "name": "Demo Property — Escrow Test",
+    "address": "Test listing used to demonstrate the buy/sell escrow flow",
+    "description": "This listing exists only to demonstrate the full buy, inspect, lend, and finalize escrow flow end-to-end on Sepolia testnet. It is not a real property.",
+    "image": "https://eldonhernandez1.github.io/kalinalisting/metadata/images/1.png",
+    "id": "4",
+    "attributes": [
+        {
+            "trait_type": "Purchase Price",
+            "value": 0.05
+        },
+        {
+            "trait_type": "Type of Residence",
+            "value": "Demo Listing"
+        },
+        {
+            "trait_type": "Bed Rooms",
+            "value": 0
+        },
+        {
+            "trait_type": "Bathrooms",
+            "value": 0
+        },
+        {
+            "trait_type": "Square Feet",
+            "value": 0
+        },
+        {
+            "trait_type": "Year Built",
+            "value": 2026
+        }
+    ]
+}
