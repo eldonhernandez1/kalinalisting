@@ -1,0 +1,33 @@
+{
+    "name": "Miami's maintained gem",
+    "address": "13795 SW 14th St, Miami, FL 33184",
+    "description": "Bright and open home in a very desirable Shoma Homes at Tamiami II subdivision.",
+    "image": "https://eldonhernandez1.github.io/kalinalisting/metadata/images/3.png",
+    "id": "3",
+    "attributes": [
+        {
+            "trait_type": "Purchase Price",
+            "value": 0.10
+        },
+        {
+            "trait_type": "Type of Residence",
+            "value": "Single family residence"
+        },
+        {
+            "trait_type": "Bed Rooms",
+            "value": 3
+        },
+        {
+            "trait_type": "Bathrooms",
+            "value": 2
+        },
+        {
+            "trait_type": "Square Feet",
+            "value": 4500
+        },
+        {
+            "trait_type": "Year Built",
+            "value": 20199520
+        }
+    ]
+}
