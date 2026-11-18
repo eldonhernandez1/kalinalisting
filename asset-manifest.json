@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/kalinalisting/static/css/main.2a18f8f9.css",
-    "main.js": "/kalinalisting/static/js/main.8f341742.js",
+    "main.js": "/kalinalisting/static/js/main.cfb1a4f4.js",
     "static/js/787.a306ae96.chunk.js": "/kalinalisting/static/js/787.a306ae96.chunk.js",
     "static/media/houses.png": "/kalinalisting/static/media/houses.62a135c8fb8e0665a54d.png",
     "static/media/logo.png": "/kalinalisting/static/media/logo.5cfc8d20903643fb83a8.png",
     "index.html": "/kalinalisting/index.html",
     "static/media/close.svg": "/kalinalisting/static/media/close.ae469738e479d31aa952364e12120ad2.svg",
     "main.2a18f8f9.css.map": "/kalinalisting/static/css/main.2a18f8f9.css.map",
-    "main.8f341742.js.map": "/kalinalisting/static/js/main.8f341742.js.map",
+    "main.cfb1a4f4.js.map": "/kalinalisting/static/js/main.cfb1a4f4.js.map",
     "787.a306ae96.chunk.js.map": "/kalinalisting/static/js/787.a306ae96.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2a18f8f9.css",
-    "static/js/main.8f341742.js"
+    "static/js/main.cfb1a4f4.js"
   ]
 }
