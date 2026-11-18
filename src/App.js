@@ -17,7 +17,7 @@ import config from '../src/config.json';
 // home listings still render for a plain visitor. Connecting a wallet is
 // still required to buy/sell.
 const SEPOLIA_CHAIN_ID = 11155111
-const SEPOLIA_PUBLIC_RPC_URL = 'https://rpc.sepolia.org'
+const SEPOLIA_PUBLIC_RPC_URL = 'https://ethereum-sepolia-rpc.publicnode.com'
 
 function App() {
   const [provider, setProvider] = useState(null)
@@ -44,18 +44,18 @@ function App() {
     const chainId = hasWallet ? (await provider.getNetwork()).chainId : SEPOLIA_CHAIN_ID
 
     const realEstate = new ethers.Contract(config[chainId].realEstate.address, RealEstate, provider)
-    
+
+    let fetchedTotalSupply = 0
     try {
-      const totalSupply = await realEstate.totalSupply();
-      setTotalSupply(totalSupply)
+      fetchedTotalSupply = await realEstate.totalSupply();
+      setTotalSupply(fetchedTotalSupply)
 
     } catch (error) {
       console.error("Error fetching totalSupply:", error);
     }
-    console.log(totalSupply)
     const homes = []
-    
-    for (var i = 1; i <= totalSupply; i++) {
+
+    for (var i = 1; i <= fetchedTotalSupply; i++) {
       try {
         const uri = await realEstate.tokenURI(i);
         const response = await fetch(uri);
