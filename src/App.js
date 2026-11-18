@@ -54,8 +54,10 @@ function App() {
       console.error("Error fetching totalSupply:", error);
     }
     const homes = []
+    const hiddenTokenIds = config[chainId].hiddenTokenIds || []
 
     for (var i = 1; i <= fetchedTotalSupply; i++) {
+      if (hiddenTokenIds.includes(i)) continue
       try {
         const uri = await realEstate.tokenURI(i);
         const response = await fetch(uri);

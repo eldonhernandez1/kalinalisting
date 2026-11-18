@@ -13,6 +13,7 @@
         },
         "escrow": {
             "address": "0xf6898b21b8B217400a586D230730f04851733537"
-        }
+        },
+        "hiddenTokenIds": [1, 2, 3, 4]
     }
 }
